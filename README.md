@@ -3,6 +3,10 @@
 ## 🛍️ Proje Özeti
 Bu proje, React ve TypeScript kullanılarak geliştirilmiş modern bir e-ticaret uygulamasıdır. Fake Store API kullanılarak ürün verileri çekilmektedir. Ayrıca Material UI kullanılmakla birlikte SCSS kullanılmıştır. 
 
+## 🚀 Canlı Proje Sayfası
+
+- https://store-app-case-study.netlify.app/
+
 ## 🚀 Özellikler
 
 ### Ürün Yönetimi
