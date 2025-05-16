@@ -1,54 +1,134 @@
-# React + TypeScript + Vite
+# Store App - E-Ticaret Uygulaması
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛍️ Proje Özeti
+Bu proje, React ve TypeScript kullanılarak geliştirilmiş modern bir e-ticaret uygulamasıdır. Fake Store API kullanılarak ürün verileri çekilmektedir. Ayrıca Material UI kullanılmakla birlikte SCSS kullanılmıştır. 
 
-Currently, two official plugins are available:
+## 🚀 Özellikler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Ürün Yönetimi
+- Ürünlerin listelenmesi
+- Kategori bazlı filtreleme
+- Fiyata göre sıralama (artan/azalan)
+- Ürün arama fonksiyonu
 
-## Expanding the ESLint configuration
+### Sepet İşlemleri
+- Ürün sepete ekleme
+- Sepetten ürün çıkarma
+- Sepet içeriğini görüntüleme
+- Ürün miktarı takibi
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Kullanılan Teknolojiler
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React** - UI geliştirme
+- **TypeScript** - Tip güvenliği
+- **Material-UI** - UI bileşenleri
+- **Zustand** - State yönetimi
+- **SCSS Modules** - Stil yönetimi
+- **Vite** - Build tool
+- **React Router** - Sayfa yönlendirme
+
+## 📦 Temel Bileşenler
+
+### `ProductsSection`
+- Ürünlerin grid yapısında gösterimi
+- Yükleme durumu kontrolü
+- Hata yönetimi
+- Filtreleme ve sıralama mantığı
+
+### `Header`
+- Uygulama başlığı
+- Sepet özeti
+- Sepet açılır penceresi
+
+### `Categories`
+- Kategori listesi
+- Çoklu kategori seçimi
+- API'den kategori verisi çekme
+
+### `ControlsBarSection`
+- Ürün arama
+- Fiyat sıralama filtreleri
+
+## 🏪 Store (State) Yönetimi
+
+### `useProductsStore`
+- Ürün verilerinin yönetimi
+- API istekleri
+- Yükleme ve hata durumları
+
+### `useCartProduct`
+- Sepet işlemleri
+- Ürün ekleme/çıkarma
+- Miktar yönetimi
+
+## 🔧 Kurulum
+
+```bash
+# Bağımlılıkları yükle
+npm install
+
+# Geliştirme sunucusunu başlat
+npm run dev
+
+# Projeyi derle
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 API Kullanımı
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Uygulama [Fake Store API](https://fakestoreapi.com/) üzerinden:
+- Ürün listesi
+- Kategori listesi
+- Ürün detayları
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+verilerini çekmektedir.
+
+## 🔍 Arama ve Filtreleme
+- Anlık ürün arama
+- Kategori bazlı filtreleme
+- Fiyat sıralaması
+
+## 📁 Proje Yapısı
+
 ```
+store-app/
+├── src/
+│   ├── assets/
+│   │   
+│   ├── components/
+│   │   ├── Products/
+│   │   │   ├── ProductsSection.tsx
+│   │   │   └── ProductCard.tsx
+│   │   ├── Categories/
+│   │   │   └── Categories.tsx
+│   │   ├── Cart/
+│   │   │   └── DropDownCartSection.tsx
+│   │   ├── Header.tsx
+│   │   └── ControlsBar/
+│   │       ├── FilterBar.tsx
+│   │       ├── ControlsBarSection.tsx
+│   │       └── SearchBar.tsx
+│   ├── pages/
+│   │   └── ShoppingPage.tsx # Index Page
+│   ├── store/
+│   │   ├── useProductsStore.ts # Interface Types Included
+│   │   └── useCartProduct.ts # Cart
+│   ├── styles/
+│   │   ├── categories.module.scss
+│   │   ├── controlsBarSection.module.scss
+│   │   ├── dropDownCartSection.module.scss
+│   │   ├── header.module.scss
+│   │   ├── productCard.module.scss
+│   │   ├── productsSection.module.scss
+│   │   └── shoppingPage.module.scss 
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── MainRoutes.tsx
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+Bu yapı, projenin ana organizasyonunu ve önemli dosyaların konumlarını göstermektedir.
