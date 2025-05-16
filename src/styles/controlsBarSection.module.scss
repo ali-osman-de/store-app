@@ -1,0 +1,22 @@
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #d3d3d3;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
